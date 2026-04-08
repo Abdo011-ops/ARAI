@@ -1,6 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-// المفتاح مضمن هنا - يشتغل مباشرة
 const API_KEY = "AIzaSyCC6wG4IulnMXJuh3oXUJjVV9Q5Bex3rh4";
 const genAI = new GoogleGenerativeAI(API_KEY);
 
