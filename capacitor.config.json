@@ -1,0 +1,9 @@
+{
+  "appId": "com.abdulrahman.arai",
+  "appName": "AR-AI",
+  "webDir": "build",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}
