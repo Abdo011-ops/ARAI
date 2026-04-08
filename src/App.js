@@ -1,11 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { initRobot, talkToRobot, generateImage } from './services/geminiService';
 import { speak } from './services/speechService';
 
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const [isLiveCall, setIsLiveCall] = useState(false);
   const [isGenerating, setIsGenerating] = useState(false);
   const messagesEndRef = useRef(null);
 
@@ -24,7 +24,6 @@ export default function App() {
     const userInput = input;
     setInput('');
 
-    // توليد صورة إذا طلب المستخدم
     if (userInput.includes('صورة') || userInput.includes('ارسم') || userInput.includes('ولد لي')) {
       setIsGenerating(true);
       const imgUrl = await generateImage(userInput);
@@ -36,7 +35,6 @@ export default function App() {
       }
     }
 
-    // رد عادي مع Streaming
     const tempId = Date.now();
     const streamingMsg = { text: '', role: 'model', timestamp: Date.now(), isStreaming: true, id: tempId };
     setMessages(prev => [...prev, streamingMsg]);
@@ -88,4 +86,4 @@ export default function App() {
       </div>
     </div>
   );
-                        }
+                }
